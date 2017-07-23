@@ -35,13 +35,14 @@ class App extends Component {
 	this.render();
   }
   newTodos(){
+     var value = document.getElementById("newTitle").value
       window.fetch('api/todos', {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify({ "todo": { "title": "asd", "created_by": "enes" } })
+      body: JSON.stringify({ "todo": { "title": value, "created_by": "enes" } })
 	    }).then(response => console.log(response));
 	this.refresh();
   }
