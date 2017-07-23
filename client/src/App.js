@@ -45,6 +45,17 @@ class App extends Component {
 	    }).then(response => console.log(response));
 	this.refresh();
   }
+  newItem(id){
+      window.fetch(`api/todos/${id}/items`, {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      body: JSON.stringify({ "item": { "todo_id": id, "name": "yapilcak is" ,"done":false} })
+	    }).then(response => console.log(response));
+	this.refresh();
+  }
   deleteTodo(id,todo){
 	    window.fetch(`api/todos/${id}` ,{
       headers: {
@@ -86,7 +97,10 @@ class App extends Component {
         </Container>
       }
 	<Button  onClick={() => this.deleteTodo(todo.id,todo)}>
-            {'delete'}
+            {'Delete'}
+	</Button>
+	<Button  onClick={() => this.newItem(todo.id)}>
+            {'Add item'}
 	</Button>
 	<Button  onClick={() => this.newTodos()}>
             {'New'}
