@@ -30,6 +30,32 @@ class App extends Component {
     this.fetch(`api/todos/${id}`)
       .then(todo => this.setState({todo: todo}))
   }
+  refresh(){
+        this.getTodos();
+	this.render();
+  }
+  newTodos(){
+      window.fetch('api/todos', {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      body: JSON.stringify({ "todo": { "title": "asd", "created_by": "enes" } })
+	    }).then(response => console.log(response));
+	this.refresh();
+  }
+  deleteTodo(id,todo){
+	    window.fetch(`api/todos/${id}` ,{
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      method: 'DELETE',
+	body: todo
+    }).then(response => console.log(response));
+	this.refresh();
+  }
   render () {
     let {todos, todo} = this.state
     return todos
@@ -59,6 +85,18 @@ class App extends Component {
           }
         </Container>
       }
+	<Button  onClick={() => this.deleteTodo(todo.id,todo)}>
+            {'delete'}
+	</Button>
+	<Button  onClick={() => this.newTodos()}>
+            {'New'}
+	</Button>
+	<div class="App" >
+  		<input type="text" placeholder="title..." id="newTitle">
+		</input>
+	</div>
+
+
     </Container>
     : <Container text>
       <Dimmer active inverted>
@@ -66,6 +104,7 @@ class App extends Component {
       </Dimmer>
     </Container>
   }
+
 }
 
 export default App
