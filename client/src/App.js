@@ -44,27 +44,17 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify({ "todo": { "title": value, "created_by": "enes" } })
 	    }).then(response => console.log(response));
-	this.refresh();
+	//this.refresh();
   }
   newItem(id){
+      var value = document.getElementById("newTitle").value
       window.fetch(`api/todos/${id}/items`, {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify({ "item": { "todo_id": id, "name": "yapilcak is" ,"done":false} })
-	    }).then(response => console.log(response));
-	this.refresh();
-  }
-  newItem(id){
-      window.fetch(`api/todos/${id}/items`, {
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      method: 'POST',
-      body: JSON.stringify({ "item": { "todo_id": id, "name": "yapilcak is" ,"done":false} })
+      body: JSON.stringify({ "item": { "todo_id": id, "name":    	value ,"done":false} })
 	    }).then(response => console.log(response));
 	this.refresh();
   }
