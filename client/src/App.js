@@ -44,7 +44,7 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify({ "todo": { "title": value, "created_by": "enes" } })
 	    }).then(response => console.log(response));
-	//this.refresh();
+	this.refresh();
   }
   newItem(id){
       var value = document.getElementById("newTitle").value
