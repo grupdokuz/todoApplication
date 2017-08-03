@@ -1,0 +1,18 @@
+class NotificationsSender
+  attr_reader :message_hash, :registration_ids
+  def initialize(message_hash: ,registration_ids:)
+    @message_hash = message_hash
+    @registration_ids = registration_ids
+  end
+
+  def send
+    client.send(registration_ids, message_hash)
+  end
+
+  private
+
+  def client
+    @client ||= GCM.new(ENV['google_gcm_api'])
+  end
+end
+
