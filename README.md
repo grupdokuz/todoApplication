@@ -1,5 +1,10 @@
 https://react.semantic-ui.com/introduction
 
+in client folder:
+npm install -g npm@latest
+rm -rf node_modules
+npm install
+
 gem install rails
 bundle install
 bundle update

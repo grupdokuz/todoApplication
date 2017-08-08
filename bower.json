@@ -1,0 +1,34 @@
+{
+  "name": "todo-app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "EnesAltinisik <es.altinisik@gmail.com>"
+  ],
+ "keywords": [
+    "calendar",
+    "date",
+    "time",
+    "form",
+    "datetime",
+    "datepicker",
+    "timepicker",
+    "datetimepicker",
+    "validation",
+    "ui",
+    "scroller",
+    "picker",
+    "i18n",
+    "input",
+    "jquery",
+    "touch"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2",
+    "jquery-mousewheel": ">= 3.1.13",
+    "php-date-formatter": ">= 1.3.3"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/grupdokuz/todoApplication",
+  "private": true
+}

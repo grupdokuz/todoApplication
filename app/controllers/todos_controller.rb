@@ -46,6 +46,6 @@ class TodosController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def todo_params
-      params.require(:todo).permit(:title, :created_by)
+      params.require(:todo).permit(:title, :created_by, :due_date)
     end
 end

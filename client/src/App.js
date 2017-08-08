@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider} from 'semantic-ui-react'
+import $ from 'jquery'
+
 
 class App extends Component {
   constructor () {
@@ -9,6 +11,9 @@ class App extends Component {
     this.getTodo = this.getTodo.bind(this)
   }
   componentDidMount () {
+$(function(){
+$('#example1').calendar();
+});
     this.getTodos()
         document.title = "Todo App";
   }
@@ -81,6 +86,7 @@ class App extends Component {
 	this.refresh();
   }
   render () {
+
     let {todos, todo} = this.state
     return todos
     ? <Container text>
@@ -118,6 +124,15 @@ class App extends Component {
 	<Button  onClick={() => this.newTodos()}>
             {'New'}
 	</Button>
+
+	<div class="ui calendar" id="example1">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="text" placeholder="Date/Time">
+		</input>
+        </div>
+      </div>
+	
 	<div class="App" >
   		<input type="text" placeholder="title..." id="newTitle">
 		</input>
