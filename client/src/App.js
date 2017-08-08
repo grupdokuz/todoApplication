@@ -10,6 +10,7 @@ class App extends Component {
   }
   componentDidMount () {
     this.getTodos()
+        document.title = "Todo App";
   }
   fetch (endpoint) {
     return new Promise((resolve, reject) => {
@@ -48,6 +49,15 @@ class App extends Component {
   }
   newItem(id){
       var value = document.getElementById("newTitle").value
+        window.fetch(`api/hello_world`, {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      method: 'hello_world'
+        }).then(response => console.log(response));
+
+
       window.fetch(`api/todos/${id}/items`, {
       headers: {
         "Accept": "application/json",
@@ -58,6 +68,7 @@ class App extends Component {
 	    }).then(response => console.log(response));
 	this.refresh();
   }
+
   deleteTodo(id,todo){
 	    window.fetch(`api/todos/${id}` ,{
       headers: {

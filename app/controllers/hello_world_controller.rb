@@ -4,4 +4,6 @@ class HelloWorldController < ApplicationController
       message: 'hello world'
     })
   end
+  helper_method :hello_world
+
 end
