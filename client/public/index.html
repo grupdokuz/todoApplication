@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 
     <!--
@@ -18,7 +19,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    
+        
   </head>
   <body>
     <div id="root"></div>
@@ -32,5 +34,15 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+ <div align="center" class="ui calendar" id="example1">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+      <input type="text" placeholder="Date/Time" id="new2">
+    </div>
+      </div>
+<div align="center" class="ui input" id="newTitle3">
+  <input type="text" placeholder="title..." id="newTitle2">
+</div>
+       <script>$('#example1').calendar();</script>
   </body>
 </html>

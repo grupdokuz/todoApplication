@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider} from 'semantic-ui-react'
-import $ from 'jquery'
+
+
 
 
 class App extends Component {
@@ -11,9 +12,7 @@ class App extends Component {
     this.getTodo = this.getTodo.bind(this)
   }
   componentDidMount () {
-$(function(){
-$('#example1').calendar();
-});
+       
     this.getTodos()
         document.title = "Todo App";
   }
@@ -41,7 +40,8 @@ $('#example1').calendar();
 	this.render();
   }
   newTodos(){
-     var value = document.getElementById("newTitle").value
+     var value = document.getElementById("newTitle2").value
+       
       window.fetch('api/todos', {
       headers: {
         "Accept": "application/json",
@@ -86,7 +86,6 @@ $('#example1').calendar();
 	this.refresh();
   }
   render () {
-
     let {todos, todo} = this.state
     return todos
     ? <Container text>
@@ -124,21 +123,6 @@ $('#example1').calendar();
 	<Button  onClick={() => this.newTodos()}>
             {'New'}
 	</Button>
-
-	<div class="ui calendar" id="example1">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <input type="text" placeholder="Date/Time">
-		</input>
-        </div>
-      </div>
-	
-	<div class="App" >
-  		<input type="text" placeholder="title..." id="newTitle">
-		</input>
-	</div>
-
-
     </Container>
     : <Container text>
       <Dimmer active inverted>
