@@ -3,7 +3,7 @@ class TodosController < ApiController
 
   # GET /todos
   def index
-    @todos = Todo.select("id, title").all
+    @todos = Todo.select("id, title,due_date").all
     render json: @todos.to_json
   end
 

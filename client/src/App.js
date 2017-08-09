@@ -40,20 +40,26 @@ class App extends Component {
 	this.render();
   }
   newTodos(){
-     var value = document.getElementById("newTitle2").value
-       
+     var value = document.getElementById("newTitle").value
+	if(value==""){
+		window.alert("title must be");
+		return;}
+     var date = document.getElementById("due_date_label").value
       window.fetch('api/todos', {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
       method: 'POST',
-      body: JSON.stringify({ "todo": { "title": value, "created_by": "enes" } })
+      body: JSON.stringify({ "todo": { "title": value, "created_by": "enes" ,"due_date":date} })
 	    }).then(response => console.log(response));
 	this.refresh();
   }
   newItem(id){
       var value = document.getElementById("newTitle").value
+	if(value==""){
+		window.alert("title must be");
+		return;}
         window.fetch(`api/hello_world`, {
       headers: {
         "Accept": "application/json",
@@ -105,7 +111,7 @@ class App extends Component {
       <Divider hidden />
       {todo &&
         <Container>
-          <Header as='h2'>{todo.title}</Header>
+          <Header as='h2'>due date: {todo.due_date.replace("T","  ").replace(":00.000Z","")}</Header>
           {todo.created_by && <p>{todo.created_by}</p>}
           {todo.items &&
             <Segment.Group>
