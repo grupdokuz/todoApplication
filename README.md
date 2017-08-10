@@ -10,3 +10,6 @@ bundle install
 bundle update
 rake db:migrate
 foreman start -f Procfile.dev
+
+push notification için
+islemForJob.java dosyasındaki path kendi ws inize uygun hale getirip javac islemForJob.java komudunu çalıştırın
